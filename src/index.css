@@ -1,0 +1,149 @@
+@import "tailwindcss";
+
+@theme {
+  --color-beige: #F5F1EB;
+  --color-beige-deep: #EBE4D8;
+  --color-espresso: #3D332A;
+  --color-espresso-dark: #2B231C;
+  --color-espresso-muted: #6B5B4E;
+  --color-gold: #C9A84C;
+  --color-gold-light: #E8D3A0;
+  --color-gold-dark: #8F7330;
+  --color-gold-text: #7A6021;
+  --color-slate-ui: #1E2229;
+  --color-slate-surface: #252A33;
+
+  --font-display: "Playfair Display", "Tajawal", Georgia, serif;
+  --font-body: "Inter", "Cairo", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  :root {
+    --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html {
+    background-color: #F5F1EB;
+    color: #3D332A;
+    font-family: var(--font-body);
+    scroll-behavior: auto;
+    overflow-x: clip;
+  }
+
+  html[dir="rtl"] body {
+    font-family: "Cairo", "Inter", system-ui, sans-serif;
+  }
+
+  html[dir="rtl"] .font-display {
+    font-family: "Tajawal", "Playfair Display", serif;
+  }
+
+  body {
+    overflow-x: clip;
+    position: relative;
+  }
+}
+
+/* Reusable Metallic Champagne Gold Gradient Utilities */
+.text-gold-metallic {
+  background: linear-gradient(135deg, #E8D3A0 0%, #C9A84C 50%, #8F7330 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gold-metallic {
+  background: linear-gradient(135deg, #E8D3A0 0%, #C9A84C 50%, #8F7330 100%);
+}
+
+.border-gold-hairline {
+  border-color: rgba(201, 168, 76, 0.32);
+}
+
+.hairline-gold-h {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(201, 168, 76, 0.55) 50%, transparent 100%);
+}
+
+/* Subtle Film Grain Overlay (2-3% opacity) */
+.film-grain {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* Warm Radial Glow */
+.glow-warm-gold {
+  background: radial-gradient(circle at center, rgba(201, 168, 76, 0.18) 0%, rgba(201, 168, 76, 0.04) 45%, transparent 72%);
+}
+
+/* Tabular Numerals for Metrics & Pricing */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus-visible AA accessibility rings */
+:focus-visible {
+  outline: 2px solid #C9A84C;
+  outline-offset: 3px;
+}
+
+/* Skip to content link */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: 16px;
+  z-index: 100;
+  background: #3D332A;
+  color: #E8D3A0;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: 1px solid #C9A84C;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Marquee animation */
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@keyframes marquee-scroll-rtl {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-scroll 28s linear infinite;
+}
+
+html[dir="rtl"] .animate-marquee {
+  animation: marquee-scroll-rtl 28s linear infinite;
+}
+
+.marquee-wrapper:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  * {
+    scroll-behavior: auto !important;
+  }
+}

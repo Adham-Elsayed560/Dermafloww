@@ -1,0 +1,6 @@
+{
+  "name": "Dermaflow AI — Protect Your Clinic Profits",
+  "description": "An AI operating system for dermatology, aesthetic, and laser clinics in Egypt, launching with clinics in Mansoura. Protection & Precision.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,11 +1,35 @@
-<div align="center">
+# Dermaflow AI — Marketing Website
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+Editorial marketing site for **Dermaflow AI**, an AI operating system built for dermatology, aesthetic, and laser clinics in Egypt (launching with clinics in Mansoura).
 
-  <h1>Built with AI Studio</h2>
+## Tech Stack
+- Vite + React + TypeScript
+- Tailwind CSS v4
+- GSAP + ScrollTrigger (pinned & scroll-scrubbed feature scenes)
+- Lenis (smooth scroll synchronized with ScrollTrigger via `gsap.ticker`)
+- Motion (`motion/react`) for spring UI controls and accordions
+- Lucide React icons
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+## Commands
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+```bash
+# Install dependencies
+npm install
 
-</div>
+# Run development server (port 3000)
+npm run dev
+
+# Type-check TypeScript
+npm run lint
+
+# Build production bundle
+npm run build
+```
+
+## Architecture
+- `src/i18n/` — Bilingual English / Arabic dictionary (`dir="ltr"` / `dir="rtl"`) and language context
+- `src/sections/` — Preloader, Navbar, Hero, Problem, Solution, Comparison, Persona, Pricing, Rollout, FAQ, Final CTA, Footer
+- `src/scenes/` — Six Dark-Slate & Champagne-Gold feature scenes (WhatsApp 24/7 intake, Laser Pulse Guard with interactive DEMO slider, Ad Budget funnel, Zero Chaos scheduling, 24h Cost Comparison, Customer Journey)
+- `src/components/ui/` — Magnetic buttons, 3D tilt cards, custom gold cursor, scroll progress, clip-path editorial images, marquee
+- `src/hooks/` — `useReducedMotion` and `useLenisGsap`
+- `src/lib/images.ts` — Asset imports supporting WebP overrides in `src/assets/images/`
